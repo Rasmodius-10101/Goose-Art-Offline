@@ -27,5 +27,6 @@
         </menus>
       </MenuBar>
       <Label layoutX="230.0" layoutY="49.0" text="Select a world to begin" />
+      <VBox fx:id="box" layoutX="56.0" layoutY="118.0" prefHeight="253.0" prefWidth="489.0" />
    </children>
 </AnchorPane>
