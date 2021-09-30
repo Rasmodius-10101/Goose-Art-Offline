@@ -7,16 +7,21 @@ public class Assets {
     private static final int width = 32, height = 31;
     public static BufferedImage dirt, grass, stone, lava, tree;
     public static BufferedImage[] player_down, player_left,player_right,player_up;
-
+    public static BufferedImage[] buttonStart;
 
     public static void init(){
         SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/SpriteSheet2.png"));
+        SpriteSheet menuSheet = new SpriteSheet(ImageLoader.loadImage("/Menus/StartButton.png"));
 
         //player
         player_down = new BufferedImage[2];
         player_up = new BufferedImage[2];
         player_left = new BufferedImage[2];
         player_right = new BufferedImage[2];
+
+        buttonStart = new BufferedImage[2];
+        buttonStart[0] = menuSheet.crop(0, 125, 250, 125);
+        buttonStart[1] = menuSheet.crop(0, 0, 250, 125);
 
         player_down[0]= sheet.crop(0,height*2+2, width, height);
         player_down[1]= sheet.crop(width,height*2+2, width, height);

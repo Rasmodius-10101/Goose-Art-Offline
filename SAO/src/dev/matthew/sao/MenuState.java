@@ -16,7 +16,7 @@ public class MenuState extends State{
     public MenuState(Handler handler){
         super(handler);
         GAO = ImageLoader.loadImage("/Menus/GOOSE.png");
-        RClick = ImageLoader.loadImage("/Menus/RightMouse.png");
+
 
     }
 
@@ -32,7 +32,6 @@ public class MenuState extends State{
 
 
         g.drawImage(GAO, 0,0 , null);
-        g.drawImage(RClick, 232, 275, null);
 
         g.setColor(Color.red);
         g.fillRect(handler.getMouseManager().getMouseX(), handler.getMouseManager().getMouseY(), 25,25);
