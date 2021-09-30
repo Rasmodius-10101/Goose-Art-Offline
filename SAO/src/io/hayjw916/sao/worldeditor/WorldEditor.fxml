@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.hayjw916.sao.worldeditor.WorldEditor">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.hayjw916.sao.worldeditor.WorldEditorController">
    <children>
       <MenuBar prefHeight="29.0" prefWidth="600.0">
         <menus>
@@ -26,5 +26,6 @@
           </Menu>
         </menus>
       </MenuBar>
+      <Label layoutX="230.0" layoutY="49.0" text="Select a world to begin" />
    </children>
 </AnchorPane>
