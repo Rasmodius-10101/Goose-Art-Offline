@@ -20,7 +20,7 @@ public class Assets {
         player_right = new BufferedImage[2];
 
         buttonStart = new BufferedImage[2];
-        buttonStart[0] = menuSheet.crop(0, 125, 250, 125);
+        buttonStart[0] = menuSheet.crop(1, 126, 249, 124);
         buttonStart[1] = menuSheet.crop(0, 0, 250, 125);
 
         player_down[0]= sheet.crop(0,height*2+2, width, height);

@@ -40,7 +40,7 @@ public class MenuState extends State{
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(GAO, 0,0 , null);
+        g.drawImage(GAO, 100,0 , 450, 200, null);
         uiManager.render(g);
     }
 }
