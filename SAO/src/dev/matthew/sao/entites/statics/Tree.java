@@ -2,6 +2,7 @@ package dev.matthew.sao.entites.statics;
 
 import dev.matthew.sao.Handler;
 import dev.matthew.sao.gfx.Assets;
+import dev.matthew.sao.items.Item;
 import dev.matthew.sao.tiles.Tile;
 
 import java.awt.*;
@@ -32,6 +33,6 @@ public class Tree extends StaticEntity{
 
     @Override
     public void die() {
-
+        handler.getWorld().getItemManager().addItem(Item.woodItem.createNew((int) x,(int) y));
     }
 }

@@ -3,7 +3,9 @@ package dev.matthew.sao.worlds;
 import dev.matthew.sao.Handler;
 import dev.matthew.sao.entites.Creature.player.Player;
 import dev.matthew.sao.entites.EntityManager;
+import dev.matthew.sao.entites.statics.Boulder;
 import dev.matthew.sao.entites.statics.Tree;
+import dev.matthew.sao.items.ItemManager;
 import dev.matthew.sao.tiles.Tile;
 import dev.matthew.sao.utils.Utils;
 import java.awt.*;
@@ -14,14 +16,21 @@ public class World {
     private int width, height;
     private int spawnX, spawnY;
     private int[][] tiles;
+
     //Entities
     private EntityManager entityManager;
+
+    //Item
+    private ItemManager itemManager;
 
     //consturtor
     public World(Handler handler, String path){
         this.handler = handler;
         entityManager = new EntityManager(handler, new Player(handler, 100, 100));
+        itemManager = new ItemManager(handler);
+        //temp enitiy code
         entityManager.addEntity(new Tree(handler, 100, 200));
+        entityManager.addEntity(new Boulder(handler, 100, 400));
 
         loadWorld(path);
 
@@ -31,6 +40,7 @@ public class World {
 
     //tick
     public void tick(){
+        itemManager.tick();
         entityManager.tick();
     }
 
@@ -47,6 +57,9 @@ public class World {
                         (int)( y*Tile.TILE_HEIGHT - handler.getGameCamera().getyOffSet()));
             }
         }
+        //Items
+        itemManager.render(g);
+        //entity
         entityManager.render(g);
     }
 
@@ -94,5 +107,21 @@ public class World {
     }
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
+    }
+
+    public Handler getHandler() {
+        return handler;
+    }
+
+    public void setHandler(Handler handler) {
+        this.handler = handler;
+    }
+
+    public ItemManager getItemManager() {
+        return itemManager;
+    }
+
+    public void setItemManager(ItemManager itemManager) {
+        this.itemManager = itemManager;
     }
 }
