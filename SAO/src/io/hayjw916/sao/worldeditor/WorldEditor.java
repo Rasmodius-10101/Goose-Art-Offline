@@ -16,9 +16,9 @@ public class WorldEditor extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(WorldEditor.class.getResource("WorldEditor.fxml"));
+        MainView mainView = new MainView();
 
-        Scene scene = new Scene(loader.load(), 600, 400);
+        Scene scene = new Scene(mainView, 650, 450); // possibly increase size
         primaryStage.setTitle("GAO - World Editor");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
