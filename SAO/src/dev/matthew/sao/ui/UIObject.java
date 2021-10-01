@@ -32,7 +32,9 @@ public abstract class UIObject {
         }
     }
     public void onMouseReleased(MouseEvent e){
-
+        if(hovering){
+            onClick();
+        }
     }
 
     //getters and setters
