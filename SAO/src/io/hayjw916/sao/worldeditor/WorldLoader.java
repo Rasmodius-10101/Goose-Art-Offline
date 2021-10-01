@@ -2,6 +2,7 @@ package io.hayjw916.sao.worldeditor;
 
 import dev.matthew.sao.utils.Utils;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 
 /**The whole point of WorldLoader is to load the world using javafx libraries*/
 public class WorldLoader {
@@ -30,6 +31,10 @@ public class WorldLoader {
 
     public static void render(GraphicsContext g) {
      //   g.drawImage(image, x, y, 64, 64);
+    }
+
+    public static Image drawImage() {
+        return new Image("textures/SpriteSheet2.png");
     }
 
 }

@@ -23,5 +23,7 @@ public class WorldEditor extends Application {
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
+
+        mainView.draw();
     }
 }
