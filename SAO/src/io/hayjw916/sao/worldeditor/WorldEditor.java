@@ -18,7 +18,7 @@ public class WorldEditor extends Application {
     public void start(Stage primaryStage) throws IOException {
         MainView mainView = new MainView();
 
-        Scene scene = new Scene(mainView, 650, 450); // possibly increase size
+        Scene scene = new Scene(mainView, 650, 800); // possibly increase size
         primaryStage.setTitle("GAO - World Editor");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
