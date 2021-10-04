@@ -5,6 +5,7 @@ import dev.matthew.sao.entites.Creature.Creature;
 import dev.matthew.sao.entites.Entity;
 import dev.matthew.sao.gfx.Animation;
 import dev.matthew.sao.gfx.Assets;
+import dev.matthew.sao.inventory.Inventory;
 
 import javax.swing.event.AncestorEvent;
 import java.awt.*;
@@ -16,6 +17,9 @@ public class Player extends Creature {
     private Animation animDown, animUp, animLeft,animRight;
     // attack timer
     private long lastAttackTimer, attackCooldown= 800, attackTimer = attackCooldown;
+
+    //inventory
+    private Inventory inventory;
 
 
     public Player(Handler handler, float x, float y) {
@@ -31,6 +35,8 @@ public class Player extends Creature {
         animUp = new Animation(500, Assets.player_up);
         animLeft = new Animation(500, Assets.player_left);
         animRight = new Animation(500, Assets.player_right);
+
+        inventory = new Inventory(handler);
     }
 
     @Override
@@ -46,6 +52,8 @@ public class Player extends Creature {
         handler.getGameCamera().centerOnEntity(this);
         //attack
         checkAttacks();
+        //inventory
+        inventory.tick();
     }
 
     private void checkAttacks(){
@@ -114,10 +122,14 @@ public class Player extends Creature {
     public void render(Graphics g) {
         g.drawImage(getCurrentAnimationFrame(), (int) (x - handler.getGameCamera().getxOffSet()), (int) (y - handler.getGameCamera().getyOffSet()), width, height, null);
 
-        g.setColor(Color.red);
+        //g.setColor(Color.red);
         //g.fillRect((int) (x+ bounds.x - handler.getGameCamera().getxOffSet()),(int) (y+ bounds.y - handler.getGameCamera().getyOffSet()),
          //       bounds.width, bounds.height);
 
+    }
+
+    public void postRender(Graphics g){
+        inventory.render(g);
     }
 
     @Override
@@ -137,5 +149,13 @@ public class Player extends Creature {
         }else {
             return animLeft.getCurrentFrame();
         }
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
     }
 }

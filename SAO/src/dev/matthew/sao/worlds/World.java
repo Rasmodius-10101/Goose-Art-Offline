@@ -31,6 +31,8 @@ public class World {
         //temp enitiy code
         entityManager.addEntity(new Tree(handler, 100, 200));
         entityManager.addEntity(new Boulder(handler, 100, 400));
+        entityManager.addEntity(new Tree(handler, 300, 200));
+        entityManager.addEntity(new Boulder(handler, 800, 400));
 
         loadWorld(path);
 

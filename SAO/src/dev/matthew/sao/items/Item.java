@@ -13,14 +13,17 @@ public class Item {
     public static Item rockItem = new Item(Assets.boulder, "rock", 1);
 
     //class
-    public static final int ITEMWIDTH = 32, ITEMHEIGHT = 32, PICKED_UP = -1;
+    public static final int ITEMWIDTH = 32, ITEMHEIGHT = 32;
 
     protected Handler handler;
     protected BufferedImage texture;
     protected String name;
     protected final int id;
 
+    protected Rectangle bounds;
+
     protected int x, y, count;
+    protected boolean pickedUp = false;
 
     public Item(BufferedImage texture, String name, int id){
         this.texture = texture;
@@ -28,11 +31,16 @@ public class Item {
         this.id = id;
         count = 1;
 
+        bounds = new Rectangle(x,y, ITEMWIDTH, ITEMHEIGHT);
+
         items[id] = this;
     }
 
     public void tick(){
-
+        if(handler.getWorld().getEntityManager().getPlayer().getCollisionBounds(0f,0f).intersects(bounds)){
+            pickedUp = true;
+            handler.getWorld().getEntityManager().getPlayer().getInventory().addItem(this);
+        }
     }
 
     public void render(Graphics g){
@@ -46,6 +54,13 @@ public class Item {
         g.drawImage(texture, x, y, ITEMWIDTH, ITEMHEIGHT, null);
     }
 
+    public Item createNew(int count){
+        Item i = new Item(texture, name, id);
+        i.setPickedUp(true);
+        i.setCount(count);
+        return i;
+    }
+
     public Item createNew(int x, int y){
         Item i = new Item(texture, name, id);
         i.setPostion(x, y);
@@ -55,9 +70,12 @@ public class Item {
     public void setPostion(int x, int y){
         this.x = x;
         this.y = y;
+        bounds.x = x;
+        bounds.y = y;
     }
 
     //getters & setters
+
     public Handler getHandler() {
         return handler;
     }
@@ -86,6 +104,13 @@ public class Item {
         return id;
     }
 
+    public boolean isPickedUp() {
+        return pickedUp;
+    }
+
+    public void setPickedUp(boolean pickedUp) {
+        this.pickedUp = pickedUp;
+    }
 
     public int getX() {
         return x;

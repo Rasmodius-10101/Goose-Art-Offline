@@ -1,18 +1,27 @@
 package dev.matthew.sao.gfx;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Assets {
 
     private static final int width = 32, height = 31;
+
+    public static Font font28;
+
     public static BufferedImage dirt, grass, stone, lava, tree;
     public static BufferedImage wood, boulder;
     public static BufferedImage[] player_down, player_left,player_right,player_up;
     public static BufferedImage[] buttonStart;
+    public static BufferedImage inventoryScreen;
 
     public static void init(){
+        font28 = FontLoader.loadFont("res/Fonts/17467_Goose.ttf", 28);
+
         SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/SpriteSheet2.png"));
         SpriteSheet menuSheet = new SpriteSheet(ImageLoader.loadImage("/Menus/StartButton.png"));
+
+        inventoryScreen = ImageLoader.loadImage("/Menus/Inventory.png");
 
         //player
         player_down = new BufferedImage[2];
