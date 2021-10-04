@@ -10,7 +10,7 @@ public class Item {
 
     public static Item[] items = new Item[256];
     public static Item woodItem = new Item(Assets.wood, "wood", 0);
-    public static Item rockItem = new Item(Assets.wood, "rock", 1);
+    public static Item rockItem = new Item(Assets.boulder, "rock", 1);
 
     //class
     public static final int ITEMWIDTH = 32, ITEMHEIGHT = 32, PICKED_UP = -1;
@@ -48,11 +48,11 @@ public class Item {
 
     public Item createNew(int x, int y){
         Item i = new Item(texture, name, id);
-        i.setPostion();
+        i.setPostion(x, y);
         return i;
     }
 
-    public void setPostion(){
+    public void setPostion(int x, int y){
         this.x = x;
         this.y = y;
     }
