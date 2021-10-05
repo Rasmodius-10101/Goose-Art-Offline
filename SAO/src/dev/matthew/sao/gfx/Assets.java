@@ -16,7 +16,7 @@ public class Assets {
     public static BufferedImage inventoryScreen;
 
     public static void init(){
-        font28 = FontLoader.loadFont("res/Fonts/17467_Goose.ttf", 28);
+        font28 = FontLoader.loadFont("res/Fonts/lucy_goosey_black_loose.ttf", 28);
 
         SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/SpriteSheet2.png"));
         SpriteSheet menuSheet = new SpriteSheet(ImageLoader.loadImage("/Menus/StartButton.png"));
