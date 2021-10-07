@@ -4,6 +4,7 @@ import dev.matthew.sao.*;
 import dev.matthew.sao.gfx.Assets;
 import dev.matthew.sao.gfx.Text;
 import dev.matthew.sao.items.Item;
+import dev.matthew.sao.items.ItemManager;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -25,7 +26,7 @@ public class Inventory {
     public Inventory(Handler handler){
         this.handler = handler;
         inventoryItems = new ArrayList<Item>();
-        
+
     }
 
     public void tick(){
@@ -63,7 +64,7 @@ public class Inventory {
             return;
         }
 
-        for (int i = -5; i < 6;i++){
+        for (int i = -2; i < 3;i++){
             if (selectedItem + i < 0 || selectedItem + i >= len){
                 continue;
             }
